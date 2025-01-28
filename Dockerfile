@@ -1,7 +1,8 @@
 FROM tensorflow/serving:latest
+
 COPY ./output/serving_model /models/cc-model
 ENV MODEL_NAME=cc-model
-ENV PORT=8501
+ENV PORT=8080
 RUN echo '#!/bin/bash \n\n\
 env \n\
 tensorflow_model_server --port=8500 --rest_api_port=${PORT} \
